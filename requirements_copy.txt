@@ -1,0 +1,4 @@
+lxml
+python-decouple
+requests
+pandas
