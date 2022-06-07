@@ -2,6 +2,8 @@
 
 Here in this repository, we have designed a simple ETL process that extract data from an API and we are transforming this data using Spark and loading this data into an AWS S3 bucket. We running this batch processes using Airflow by Spark job submit Operator in Airflow. All the processes described here are happening on a Docker containers. You can look at this [repository](https://github.com/yTek01/apache-airflow-spark) if you are interested in local deployment as opposed to Docker-based solution. 
 
+![alt text](https://github.com/yTek01/docker-spark-airflow/blob/main/images/index.png)
+
 ## Things to do;
 
 *  Clone the Github repository 
