@@ -35,7 +35,5 @@ dataframe = raw_json_dataframe.withColumn("data", F.explode(F.col("data"))) \
 dataframe.show(100, False)
 dataframe.toPandas().to_csv("dataframe.csv")
 
-## NOTE This line requires Java 8 instead of Java 11 work it to work on Airflow
-## We are saving locally for now.
-# dataframe.write.parquet('s3a://sparkjobresult/output',mode='overwrite')
-# dataframe.write.format('csv').option('header','true').save('s3a://sparkjobresult/output',mode='overwrite')
+dataframe.write.parquet('s3a://sparkjobresult/output',mode='overwrite')
+dataframe.write.format('csv').option('header','true').save('s3a://sparkjobresult/output',mode='overwrite')
