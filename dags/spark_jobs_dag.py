@@ -24,10 +24,10 @@ Spark_docker_dag = DAG(
 start = DummyOperator(task_id="start", dag=Spark_docker_dag)
 
 Extract = DockerOperator(
-    task_id='spark_docker_runner.Extract',
-    container_name='spark_container',
+    task_id='Extract',
+    container_name='spark_worker',
     image='spark-air:latest', 
-    command='spark-submit --master spark://master:7077 spark_etl_script_docker.py', 
+    command='spark-submit --master spark://spark:7077 spark_etl_script_docker.py', 
     docker_url='unix://var/run/docker.sock', 
     network_mode='bridge', 
     xcom_all=True, 

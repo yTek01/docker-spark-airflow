@@ -2,6 +2,7 @@ version: '2'
 
 services:
   spark:
+    container_name: spark_master
     image: spark-air:latest
     environment:
       - SPARK_MODE=master
@@ -13,7 +14,10 @@ services:
       - AWS_SECRET_KEY=${AWS_SECRET_KEY}
     ports:
       - '8090:8080'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
   spark-worker:
+    container_name: spark_worker
     image: spark-air:latest
     environment:
       - SPARK_MODE=worker
@@ -26,3 +30,5 @@ services:
       - SPARK_SSL_ENABLED=no
       - AWS_ACCESS_KEY=${AWS_ACCESS_KEY}
       - AWS_SECRET_KEY=${AWS_SECRET_KEY}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
